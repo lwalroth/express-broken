@@ -3,7 +3,8 @@ window.Shortly = Backbone.View.extend({
 
   events: {
     'click li a.index':  'renderIndexView',
-    'click li a.create': 'renderCreateView'
+    'click li a.create': 'renderCreateView',
+    'click li a.myLinks': 'renderMyLinkView'
   },
 
   initialize: function(){
@@ -31,6 +32,11 @@ window.Shortly = Backbone.View.extend({
     this.router.navigate('/create', { trigger: true });
   },
 
+  renderMyLinkView: function(e){
+    e && e.preventDefault();
+    this.router.navigate('/myLinks', { trigger: true });
+  },
+
   updateNav: function(routeName){
     this.$el.find('.navigation li a')
       .removeClass('selected')
@@ -38,3 +44,5 @@ window.Shortly = Backbone.View.extend({
       .addClass('selected');
   }
 });
+
+

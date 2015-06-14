@@ -19,7 +19,7 @@ Shortly.createLinkView = Backbone.View.extend({
     link.on('request', this.startSpinner, this);
     link.on('sync', this.success, this);
     link.on('error', this.failure, this);
-    link.save({});
+    link.save({}); // triggers request, sync, event
     $form.val('');
   },
 
